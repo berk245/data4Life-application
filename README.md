@@ -2,7 +2,7 @@
 
    The challenge I have received asks me to write a program that will send out emails to recipients
    from a huge list (1 Mio entries) in a performant way. I wanted to include couple more small features, to
-   make my solution a bit more relevant to a potential real-world usage.
+   make my solution a bit more relevant to a potential real-world use case.
 
    The main idea here was that the big list of recipients has to be retrieved from some source before it is handled. In my case, the mail
    addresses come from an external database that consists 1.500.000 users, 1.000.000 of which are subscribers of a newsletter,
