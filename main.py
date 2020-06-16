@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from pprint import pprint
 import time
 import os
-from multiprocessing import Process, current_process, Pool
+from multiprocessing import Pool
 
 
 def mail_sender(users):
