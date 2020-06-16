@@ -27,7 +27,7 @@
 
 3. Issues & Possible improvements
 
-   a. The access information for database and mail address are not hidden and does not use a .env file or
+   a. The access information for database and mail address are not hidden and the application does not use a .env file or
    Environment variables. This is a decision I made, in case you would like to test the application with my test accounts.
 
    b. Although multiprocessing increases the speed of application, due to the immense amount of tasks it does, it still requires a lot
