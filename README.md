@@ -9,7 +9,7 @@
    which is hypothetically the reason for sending the e-mail. (The methods used to populate the database can be seen in the
    populateDatabase.py file.)
 
-   After retrieving the subscribed users, the app sends a personalized mail to each user.
+   After retrieving the subscribed users, the app sends a personalized mail to each user / mocks the sending process.
 
 2. Process
 
@@ -17,19 +17,24 @@
    reading from the database), I decided to switch to Python. My node.js code is also included in the repository, if you'd like to have
    a look at it.
 
-   The app is able to populate the database, retrieve data from the database(MongoDB) and send mails using a test Gmail account.
+   The app is able to populate and retrieve data from the database(MongoDB). I have included a SMTP library to imitate the process of
+   mail sending, with a test Gmail account. The problem was that Gmail blocks the application after sending 140 emails and this is a small sample
+   when the entire million tasks are considered.
+
+   Therefore, I have created another function, mock_mail_sender, which only prints a statement with a delay of half a second (as suggested in the original challenge).
+   To increase the performance and the time elapsed, the application has the multiprocessing enabled, which takes advantage of all available processing units of the
+   computer it is executed in.
 
 3. Issues & Possible improvements
 
    a. The access information for database and mail address are not hidden and does not use a .env file or
    Environment variables. This is a decision I made, in case you would like to test the application with my test accounts.
 
-   b. GMail blocks the application after 140 mails. I made a quick research and found out that most of free mail service providers
-   have a similar policy. I decided to keep it the way it is anyway, to actually send the mails instead of setting intervals.
+   b. Although multiprocessing increases the speed of application, due to the immense amount of tasks it does, it still requires a lot
+   of time. I will make a research on the possibility of implementing more sophisticated methods or combination of methods to further decrease the runtime.
 
 4. Learnings
 
    While trying to develop the app using node.js, I have encountered problems and approaches to fix those problems that I have
-   yet to have much experience with. Memory heap, threading and working threads, streams are some to mention. To use my time more efficiently,
-   I decided to first try to write the same functions using Python, to see if there would be any improvements. Regardless of the result of
-   my job application, I will dig deeper on those points and this is my biggest take away from this challenge.
+   yet to have much experience with. Memory heap, threading and working threads, streams are some to mention. Although I have implemented a solution with multiprocessing to
+   overcome some of these issues, I still need to dive deeper to get a better comprehension on the subject and the best practices.
